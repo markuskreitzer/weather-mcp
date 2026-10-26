@@ -1,6 +1,6 @@
 FROM python:3.11-slim as builder
 
-RUN python -m pip install --upgrade "pip>=26.2.2"
+RUN python -m pip install --no-cache-dir --upgrade "pip>=26.2.2"
 
 # Install uv for faster dependency management
 COPY --from=ghcr.io/astral-sh/uv:0.13.4 /uv /uvx /usr/local/bin/
@@ -16,7 +16,7 @@ RUN uv sync --frozen --no-cache
 
 FROM python:3.11-slim as runtime
 
-RUN python -m pip install --upgrade "pip>=26.2.2"
+RUN python -m pip install --no-cache-dir --upgrade "pip>=26.2.2"
 
 # Install curl for health checks and uv for runtime
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
