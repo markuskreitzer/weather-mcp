@@ -3,7 +3,7 @@ name = "mcp-weather"
 version = "1.1.0"
 description = "Weather forecast tool for MCP with HTTP streaming support"
 authors = []
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "fastmcp",
     "python-dotenv",
